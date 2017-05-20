@@ -11,11 +11,24 @@
     cette étude puissent être conservées dans une base de données et faire l’objet d’un traitement informatisé non nominatif en vue de publication 
     scientifique.
     </p>
-    <form method="post" action="start.php">
-        <p>
-            <input type="radio" name="accord" value="oui" id="oui"/> <label for="oui">J'ai pris connaissance de ces informations et donne mon accord à cette enquête</label></br>
-            <input type="radio" name="accord" value="non" id="non" checked="checked" /><label for="non">Je ne souhaite pas continuer</label></br>
-            <input type="submit" value="Confirmer" />
-        </p>
+    <form method="post" action="start.php" class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-10" for="oui">J'ai pris connaissance de ces informations et donne mon accord à cette enquête</label>
+            <div class="col-sm-2">
+                <input class="form-control" type="radio" name="accord" value="oui" id="oui"/> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-10" for="non">Je ne souhaite pas continuer</label>
+            <div class="col-sm-2">
+                <input class="form-control" type="radio" name="accord" value="non" id="non" checked="checked" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-9 col-sm-10">
+                <!--<input type="submit" value="Confirmer" />-->
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
     </form>
 </article>
