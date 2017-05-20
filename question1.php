@@ -62,6 +62,34 @@
             </div>
         </div>
     </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">Catégorie</div>
+         <div class="form-group">
+            <label class="control-label col-sm-2" for="enseignant">Personel d'enseignement, d'éducation, d'orientation :</label>
+            <div class="col-sm-1">
+                <input class="form-control" type="radio" name="categorie" value="enseignant" id="enseignant"  checked="checked"/> 
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="itrf">Personnel ITRF et ATSS (administratif, technique, social et de santé) :</label>
+            <div class="col-sm-1">
+                <input class="form-control" type="radio" name="categorie" value="itrf" id="itrf" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="direction">Personnel de direction et d'inspection:</label>
+            <div class="col-sm-1">
+                <input class="form-control" type="radio" name="categorie" value="direction" id="direction" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </div>
+    
   </form>
 
   <?php include("includes/footer.php");?>
