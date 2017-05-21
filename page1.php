@@ -22,7 +22,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="age">Age:</label>
             <div class="col-sm-10">
-                <input type="age" class="form-control" name="age" id="age" 
+                <input type="text" pattern="[0-9]{1,2}" class="form-control" name="age" id="age" 
                     value="<?php echo (isset($_SESSION['age']))?$_SESSION['age']:'';?>"
                     placeholder="Âge en nombre d'années (2 chiffres, sans aucun texte complémentaire, par ex : 33)">
             </div>

@@ -91,7 +91,7 @@
             <div id="nbanciennete" style="display: none">
                 <label class="control-label col-sm-2" for="anneanciennete">Ancienneté:</label>
                 <div class="col-sm-4">
-                    <input type="age" class="form-control" name="anneanciennete" id="anneanciennete" 
+                    <input type="text" pattern="[0-9]{1,2}" class="form-control" name="anneanciennete" id="anneanciennete" 
                         value="<?php echo (isset($_SESSION['anneanciennete']))?$_SESSION['anneanciennete']:'';?>"
                         placeholder="Nombre d'années d'ancienneté">
                 </div>
