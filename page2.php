@@ -11,14 +11,32 @@
   <script type="text/javascript">
 //   function javascript. Si l'identifiant moinsunan ou plusunan sont coché, on affiche ou masque la boite de saisie du nombre d'année d'ancienneté
     $(document).ready(function() {
-        $('#moinsunan, #plusunan').change(function() {
+        $('#moinsunan, #plusunan,#enseignant,#itrf,#direction,#undegre,#deuxdegre,#autrefonction').change(function() {
             if ($('#plusunan').is(':checked')) {
                 $('#nbanciennete').show();
             }
             else {
                 $('#nbanciennete').hide();
             }
-        });
+            if($('#enseignant').is(':checked')) {
+                $('#PEOO').show();
+            }
+            else {
+                $('#PEOO').hide();
+            }
+            if($('#undegre').is(':checked')) {
+                $('#peoo1').show();
+            }
+            else {
+                $('#peoo1').hide();
+            }
+           if($('#autrefonction').is(':checked')) {
+                $('#libautrefonction').show();
+            }
+            else {
+                $('#libautrefonction').hide();
+            }
+         });
     });
  
 </script>
@@ -86,8 +104,6 @@
                     echo '<input class="form-control" type="radio" name="anciennete" value="plusunan" id="plusunan"'.$isChecked .' />';
                 ?>
             </div>
-        <!--</div>
-        <div class="form-group">-->
             <div id="nbanciennete" style="display: none">
                 <label class="control-label col-sm-2" for="anneanciennete">Ancienneté:</label>
                 <div class="col-sm-4">
@@ -150,6 +166,125 @@
                 ?>
             </div>
         </div>
+    </div>
+    <div id="PEOO" style="display: none">
+        <div class="panel panel-default">
+            <div class="panel-body">Personel d'enseignement, d'éducation, d'orientation</div>
+            <p>vous intervenez dans le :</p>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="undegre">1° degré :</label>
+                <div class="col-sm-1">
+                <?php
+                        $isChecked = "";
+                        if(isset($_SESSION['peoo']))
+                        {
+                            if($_SESSION['peoo'] == "undegre")
+                            {
+                                $isChecked = "checked=\"checked\"";
+                            }
+                        }
+                        echo '<input class="form-control" type="radio" name="peoo" value="undegre" id="undegre"'.$isChecked .' />';
+                    ?>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="deuxdegre">2eme degré :</label>
+                <div class="col-sm-1">
+                <?php
+                        $isChecked = "";
+                        if(isset($_SESSION['peoo']))
+                        {
+                            if($_SESSION['peoo'] == "deuxdegre")
+                            {
+                                $isChecked = "checked=\"checked\"";
+                            }
+                        }
+                        echo '<input class="form-control" type="radio" name="peoo" value="deuxdegre" id="deuxdegre"'.$isChecked .' />';
+                    ?>
+                </div>
+            </div>
+        </div>
+        <div id="peoo1" style="display: none">
+            <div class="panel panel-default">
+                <div class="panel-body">Votre fonction est</div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="enseignement">enseignement :</label>
+                    <div class="col-sm-1">
+                    <?php
+                            $isChecked = "";
+                            if(isset($_SESSION['peoo1fonction']))
+                            {
+                                if($_SESSION['peoo1fonction'] == "enseignement")
+                                {
+                                    $isChecked = "checked=\"checked\"";
+                                }
+                            }
+                            echo '<input class="form-control" type="radio" name="peoo1fonction" value="enseignement" id="enseignement"'.$isChecked .' />';
+                        ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="directeur">Directeur d'école :</label>
+                    <div class="col-sm-1">
+                    <?php
+                            $isChecked = "";
+                            if(isset($_SESSION['peoo1fonction']))
+                            {
+                                if($_SESSION['peoo1fonction'] == "directeur")
+                                {
+                                    $isChecked = "checked=\"checked\"";
+                                }
+                            }
+                            echo '<input class="form-control" type="radio" name="peoo1fonction" value="directeur" id="directeur"'.$isChecked .' />';
+                        ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="conseiller">Conseiller pédagogique :</label>
+                    <div class="col-sm-1">
+                    <?php
+                            $isChecked = "";
+                            if(isset($_SESSION['peoo1fonction']))
+                            {
+                                if($_SESSION['peoo1fonction'] == "conseiller")
+                                {
+                                    $isChecked = "checked=\"checked\"";
+                                }
+                            }
+                            echo '<input class="form-control" type="radio" name="peoo1fonction" value="conseiller" id="conseiller"'.$isChecked .' />';
+                        ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="autrefonction">Autre fonction :</label>
+                    <div class="col-sm-1">
+                        <?php
+                            $isChecked = "";
+                            if(isset($_SESSION['peoo1fonction']))
+                            {
+                                if($_SESSION['peoo1fonction'] == "autrefonction")
+                                {
+                                    $isChecked = "checked=\"checked\"";
+                                }
+                            }
+                            echo '<input class="form-control" type="radio" name="peoo1fonction" value="autrefonction" id="autrefonction"'.$isChecked .' />';
+                        ?>
+                    </div>
+                    <div id="libautrefonction" style="display: none">
+                        <label class="control-label col-sm-2" for="libellefonction">Fonction :</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="libellefonction" id="libellefonction" 
+                                value="<?php echo (isset($_SESSION['libellefonction']))?$_SESSION['libellefonction']:'';?>"
+                                placeholder="Votre fonction">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Valider</button>

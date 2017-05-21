@@ -15,7 +15,23 @@
     if(isset($_POST['categorie']))    
     {
         $_SESSION['categorie'] = $_POST['categorie'];
+        if($_SESSION['categorie'] == 'enseignant')
+        {
+
+        } 
+        else if($_SESSION['categorie'] == 'itrf')
+        {
+
+        }
+        else if($_SESSION['categorie'] == 'direction')
+        {
+
+        }
     }
-    
-    include("page3.php");
+    else
+    {
+        // Retour à la page d'accueil
+        header("Location: index.php");
+        exit;
+    }
 ?>
