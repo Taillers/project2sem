@@ -11,7 +11,7 @@
     cette étude puissent être conservées dans une base de données et faire l’objet d’un traitement informatisé non nominatif en vue de publication 
     scientifique.
     </p>
-    <form method="post" action="start.php" class="form-horizontal">
+    <form method="post" action="traitement1.php" class="form-horizontal">
         <div class="form-group">
             <label class="control-label col-sm-10" for="oui">J'ai pris connaissance de ces informations et donne mon accord à cette enquête</label>
             <div class="col-sm-2">
@@ -27,7 +27,7 @@
         <div class="form-group">
             <div class="col-sm-offset-9 col-sm-10">
                 <!--<input type="submit" value="Confirmer" />-->
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit" class="btn btn-default">Valider</button>
             </div>
         </div>
     </form>
