@@ -38,6 +38,41 @@
             }
         ?>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-body">Ancienneté</div>
+         <div class="form-group">
+            <label class="control-label col-sm-2" for="moinsunan">Moins d'un an:</label>
+            <div class="col-sm-1">
+                <?php
+                    $isChecked = "";
+                    if(isset($_SESSION['anciennete']))
+                    {
+                        if($_SESSION['anciennete'] == "moinsunan")
+                        {
+                            $isChecked = "checked=\"checked\"";
+                        }
+                    }
+                    echo '<input class="form-control" type="radio" name="anciennete" value="moinsunan" id="moinsunan"'.$isChecked .' />';
+                ?>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="plusunan">Plus d'un an (merci d'indiquer le nombre d'années, par exemple 10):</label>
+            <div class="col-sm-1">
+                <?php
+                    $isChecked = "";
+                    if(isset($_SESSION['anciennete']))
+                    {
+                        if($_SESSION['anciennete'] == "plusunan")
+                        {
+                            $isChecked = "checked=\"checked\"";
+                        }
+                    }
+                    echo '<input class="form-control" type="radio" name="anciennete" value="plusunan" id="plusunan"'.$isChecked .' />';
+                ?>
+            </div>
+        </div>
+    </div>
 
 
     <div class="panel panel-default">
