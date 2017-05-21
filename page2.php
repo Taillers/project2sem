@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <script src="jquery/jquery-3.2.1.min.js"></script>
   <link rel="stylesheet" href="css/perso.css">
+
+  <script type="text/javascript">
+//   function javascript. Si l'identifiant moinsunan ou plusunan sont coché, on affiche ou masque la boite de saisie du nombre d'année d'ancienneté
+    $(document).ready(function() {
+        $('#moinsunan, #plusunan').change(function() {
+            if ($('#plusunan').is(':checked')) {
+                $('#nbanciennete').show();
+            }
+            else {
+                $('#nbanciennete').hide();
+            }
+        });
+    });
+ 
+</script>
 </head>
 <body>
   <?php include("includes/header.php");?>
@@ -52,7 +67,7 @@
                             $isChecked = "checked=\"checked\"";
                         }
                     }
-                    echo '<input class="form-control" type="radio" name="anciennete" value="moinsunan" id="moinsunan"'.$isChecked .' />';
+                    echo '<input class="form-control" type="radio" name="anciennete" value="moinsunan"  id="moinsunan"'.$isChecked .' />';
                 ?>
             </div>
         </div>
@@ -71,6 +86,16 @@
                     echo '<input class="form-control" type="radio" name="anciennete" value="plusunan" id="plusunan"'.$isChecked .' />';
                 ?>
             </div>
+        <!--</div>
+        <div class="form-group">-->
+            <div id="nbanciennete" style="display: none">
+                <label class="control-label col-sm-2" for="anneanciennete">Ancienneté:</label>
+                <div class="col-sm-4">
+                    <input type="age" class="form-control" name="anneanciennete" id="anneanciennete" 
+                        value="<?php echo (isset($_SESSION['anneanciennete']))?$_SESSION['anneanciennete']:'';?>"
+                        placeholder="Nombre d'années d'ancienneté">
+                </div>
+            </div>
         </div>
     </div>
 
@@ -80,19 +105,49 @@
          <div class="form-group">
             <label class="control-label col-sm-2" for="enseignant">Personel d'enseignement, d'éducation, d'orientation :</label>
             <div class="col-sm-1">
-                <input class="form-control" type="radio" name="categorie" value="enseignant" id="enseignant"  checked="checked"/> 
-            </div>
+               <?php
+                    $isChecked = "";
+                    if(isset($_SESSION['categorie']))
+                    {
+                        if($_SESSION['categorie'] == "enseignant")
+                        {
+                            $isChecked = "checked=\"checked\"";
+                        }
+                    }
+                    echo '<input class="form-control" type="radio" name="categorie" value="enseignant" id="enseignant"'.$isChecked .' />';
+                ?>
+             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="itrf">Personnel ITRF et ATSS (administratif, technique, social et de santé) :</label>
             <div class="col-sm-1">
-                <input class="form-control" type="radio" name="categorie" value="itrf" id="itrf" />
+               <?php
+                    $isChecked = "";
+                    if(isset($_SESSION['categorie']))
+                    {
+                        if($_SESSION['categorie'] == "itrf")
+                        {
+                            $isChecked = "checked=\"checked\"";
+                        }
+                    }
+                    echo '<input class="form-control" type="radio" name="categorie" value="itrf" id="itrf"'.$isChecked .' />';
+                ?>
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="direction">Personnel de direction et d'inspection:</label>
             <div class="col-sm-1">
-                <input class="form-control" type="radio" name="categorie" value="direction" id="direction" />
+               <?php
+                    $isChecked = "";
+                    if(isset($_SESSION['categorie']))
+                    {
+                        if($_SESSION['categorie'] == "direction")
+                        {
+                            $isChecked = "checked=\"checked\"";
+                        }
+                    }
+                    echo '<input class="form-control" type="radio" name="categorie" value="direction" id="direction"'.$isChecked .' />';
+                ?>
             </div>
         </div>
         <div class="form-group">
