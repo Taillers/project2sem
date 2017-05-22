@@ -7,12 +7,12 @@
         $_SESSION['age'] = $_POST['age'];
 		if(empty($_SESSION['age']))
 		{
-			$oneError .= "Votre age ne peut pas &ecirc;tre vide.</br>";
+			$oneError .= "Votre age ne peut pas &ecirc;tre vide.<br/>";
 		}
     }
 	else
 	{
-		$oneError .= "Vous devez indiquer votre age.</br>";
+		$oneError .= "Vous devez indiquer votre age.<br/>";
 	}
     if(isset($_POST['sexe']))
     {
@@ -20,7 +20,7 @@
     }
 	else
 	{
-		$oneError .= "Vous devez indiquer votre sexe.</br>";
+		$oneError .= "Vous devez indiquer votre sexe.<br/>";
 	}
 
     if(isset($_POST['statut']))
@@ -29,7 +29,7 @@
     }
 	else
 	{
-		$oneError .= "Vous devez indiquer votre statut.</br>";
+		$oneError .= "Vous devez indiquer votre statut.<br/>";
 	}
 	if(empty($oneError))
 	{

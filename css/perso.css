@@ -1,3 +1,18 @@
 p {
     margin:20px;
 }
+
+#ex1Slider {
+    width: 100%;
+}
+
+#ex2Slider {
+    width: 100%;
+}
+
+#ex1Slider .slider-selection {
+	background: #BABABA;
+}
+
+#ex2Slider .slider-selection {
+	background: #4cff00;

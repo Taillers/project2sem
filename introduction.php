@@ -1,7 +1,8 @@
 
 <article>
     <p>
-    En remplissant ce questionnaire :</br>Je certifie donner volontairement mon accord pour participer à une étude de sciences humaines. 
+    En remplissant ce questionnaire :
+<br />Je certifie donner volontairement mon accord pour participer à une étude de sciences humaines. 
     Je comprends que ma participation n'est pas obligatoire et que je peux stopper ma participation à tout moment sans avoir à me justifier 
     ni encourir aucune responsabilité. Mon consentement ne décharge pas les organisateurs de la recherche de leurs responsabilités et je conserve 
     tous mes droits garantis par la loi.  Au cours de cette enquête, j’accepte que soient recueillies des données sur mes réponses. 

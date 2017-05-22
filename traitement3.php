@@ -14,18 +14,18 @@
 					$_SESSION['libelle2fonction'] = $_POST['libelle2fonction'];
 					if(empty($_SESSION['libelle2fonction']))
 					{
-						$funcError .= "Le libells&eacute; de votre fonction ne peut pas &ecirc;etre vide</br>";
+						$funcError .= "Le libells&eacute; de votre fonction ne peut pas &ecirc;etre vide<br/>";
 					}
 				}
 				else
 				{
-					$funcError .= "Vous devez indiquer le libells&eacute; de votre fonction</br>";
+					$funcError .= "Vous devez indiquer le libells&eacute; de votre fonction<br/>";
 				}
 			}
 		}
 		else
 		{
-			$funcError .= "Vous devez s&eacute;lectionner votre fonction</br>";
+			$funcError .= "Vous devez s&eacute;lectionner votre fonction<br/>";
 		}
 		if(isset($_POST['peoo2type']))
 		{
@@ -37,18 +37,18 @@
 					$_SESSION['libelle2type'] = $_POST['libelle2type'];
 					if(empty($_SESSION['libelle2type']))
 					{
-						$funcError .= "Le type de votre &eacute;tablissement ne peut pas &ecirc;etre vide</br>";
+						$funcError .= "Le type de votre &eacute;tablissement ne peut pas &ecirc;etre vide<br/>";
 					}
 				}
 				else
 				{
-					$funcError .= "Vous devez indiquer le type de votre &eacute;tablissement</br>";
+					$funcError .= "Vous devez indiquer le type de votre &eacute;tablissement<br/>";
 				}
 			}
 		}
 		else
 		{
-			$funcError .= "Vous devez s&eacute;lectionner votre &eacute;tablissement</br>";
+			$funcError .= "Vous devez s&eacute;lectionner votre &eacute;tablissement<br/>";
 		}
 
 		return $funcError;
@@ -61,7 +61,7 @@
     }
 	else
 	{
-		$oneError = "Vous devez selectionner votre d&eacute;partement</br>";
+		$oneError = "Vous devez selectionner votre d&eacute;partement<br/>";
 	}
     if(isset($_POST['anciennete']))
     {
@@ -73,18 +73,18 @@
 				$_SESSION['anneanciennete'] = $_POST['anneanciennete'];
 				if(empty($_SESSION['anneanciennete']))
 				{
-					$oneError .= "Votre anciennet&eacute; ne peut pas &ecirc;tre vide.</br>";
+					$oneError .= "Votre anciennet&eacute; ne peut pas &ecirc;tre vide.<br/>";
 				}
 			}
 			else
 			{
-				$oneError .= "Votre anciennet&eacute; ne peut pas &ecirc;tre vide.</br>";
+				$oneError .= "Votre anciennet&eacute; ne peut pas &ecirc;tre vide.<br/>";
 			}
 		}
     }
 	else
 	{
-		$oneError .= "Vous devez selectionner votre anciennet&eacute;</br>";
+		$oneError .= "Vous devez selectionner votre anciennet&eacute;<br/>";
 	}
     if(isset($_POST['categorie']))
     {
@@ -106,19 +106,19 @@
 								$_SESSION['libellefonction'] = $_POST['libellefonction'];
 								if(empty($_SESSION['libellefonction']))
 								{
-									$oneError .= "Votre fonction ne peut pas être vide</br>";
+									$oneError .= "Votre fonction ne peut pas être vide<br/>";
 								}
 							}
 							else
 							{
-								$oneError .= "Vous devez renseigner votre fonction</br>";
+								$oneError .= "Vous devez renseigner votre fonction<br/>";
 							}
 
 						}
 					}
 					else
 					{
-						$oneError .= "Vous devez selectionner votre fonction</br>";
+						$oneError .= "Vous devez selectionner votre fonction<br/>";
 					}
 					if(isset($_POST['peeo1b']))
 					{
@@ -130,12 +130,12 @@
 								$_SESSION['peeo1bautretypelibelle'] = $_POST['peeo1bautretypelibelle'];
 								if(empty($_SESSION['peeo1bautretypelibelle']))
 								{
-									$oneError .= "Votre type d'&eacute;tablissement ne peut pas etre vide</br>";
+									$oneError .= "Votre type d'&eacute;tablissement ne peut pas etre vide<br/>";
 								}
 							}
 							else
 							{
-								$oneError .= "Vous devez renseigner votre type d'&eacute;tablissement</br>";
+								$oneError .= "Vous devez renseigner votre type d'&eacute;tablissement<br/>";
 							}
 						}
 						if($_SESSION['peeo1b'] == 'maternelle')
@@ -146,7 +146,7 @@
 							}
 							else
 							{
-								$oneError .= "Vous devez renseigner le nombre de classes dans votre &eacute;tablissement</br>";
+								$oneError .= "Vous devez renseigner le nombre de classes dans votre &eacute;tablissement<br/>";
 							}
 						}
 						if($_SESSION['peeo1b'] == 'elementaire')
@@ -157,13 +157,13 @@
 							}
 							else
 							{
-								$oneError .= "Vous devez renseigner le nombre de classes dans votre &eacute;tablissement</br>";
+								$oneError .= "Vous devez renseigner le nombre de classes dans votre &eacute;tablissement<br/>";
 							}
 						}
 					}
 					else
 					{
-						$oneError .= "Vous devez selectionner votre type d'&eacute;tablissement</br>";
+						$oneError .= "Vous devez selectionner votre type d'&eacute;tablissement<br/>";
 					}
 				}
 				if($_SESSION['peoo'] == 'deuxdegre')
@@ -176,13 +176,13 @@
 				}
 				else
 				{
-					$oneError .= "Vous devez indiquer si votre &eacute;tablissement est en zone prioritaire ou non</br>";
+					$oneError .= "Vous devez indiquer si votre &eacute;tablissement est en zone prioritaire ou non<br/>";
 				}
 
 			}
 			else
 			{
-				$oneError .= "Vous devez indiquer votre zone d'intervention</br>";
+				$oneError .= "Vous devez indiquer votre zone d'intervention<br/>";
 			}
 		}
 		else if($_SESSION['categorie'] == 'itrf')
@@ -198,7 +198,7 @@
 					}
 					else
 					{
-						$oneError .= "Vous devez pr&eacute;ciser votre fili&egrave;re</br>";
+						$oneError .= "Vous devez pr&eacute;ciser votre fili&egrave;re<br/>";
 					}
 					if(isset($_POST['filiereatsscatg']))
 					{
@@ -206,7 +206,7 @@
 					}
 					else
 					{
-						$oneError .= "Vous devez pr&eacute;ciser votre cat&eacute;gorie</br>";
+						$oneError .= "Vous devez pr&eacute;ciser votre cat&eacute;gorie<br/>";
 					}
 					if(isset($_POST['filiereatsstype']))
 					{
@@ -218,18 +218,18 @@
 								$_SESSION['type3fonction'] = $_POST['type3fonction'];
 								if(empty($_SESSION['type3fonction']))
 								{
-									$oneError .= "Votre type d'&eacute;tablissement ne peut pas &ecirc;tre vide</br>";
+									$oneError .= "Votre type d'&eacute;tablissement ne peut pas &ecirc;tre vide<br/>";
 								}
 							}
 							else
 							{
-								$oneError .= "Vous devez pr&eacute;ciser votre type d'&eacute;tablissement</br>";
+								$oneError .= "Vous devez pr&eacute;ciser votre type d'&eacute;tablissement<br/>";
 							}
 						}
 					}
 					else
 					{
-						$oneError .= "Vous devez s&eacute;lectionner votre type d'&eacute;tablissement</br>";
+						$oneError .= "Vous devez s&eacute;lectionner votre type d'&eacute;tablissement<br/>";
 					}
 
 				}
@@ -250,18 +250,18 @@
 										$_SESSION['type4type'] = $_POST['type4type'];
 										if(empty($_SESSION['type4type']))
 										{
-											$oneError .= "Votre type d'&eacute;tablissement doit &ecirc;tre renseigner</br>";
+											$oneError .= "Votre type d'&eacute;tablissement doit &ecirc;tre renseigner<br/>";
 										}
 									}
 									else
 									{
-										$oneError .= "Vous devez pr&eacute;sicer votre type d'&eacute;tablissement</br>";
+										$oneError .= "Vous devez pr&eacute;sicer votre type d'&eacute;tablissement<br/>";
 									}
 								}
 							}
 							else
 							{
-								$oneError .= "Vous devez s&eacute;lectionner votre type d'&eacute;tablissement</br>";
+								$oneError .= "Vous devez s&eacute;lectionner votre type d'&eacute;tablissement<br/>";
 							}
 
 						}
@@ -273,19 +273,19 @@
 							}
 							else
 							{
-								$oneError .= "Vous devez indiquer votre zone d'intervention</br>";
+								$oneError .= "Vous devez indiquer votre zone d'intervention<br/>";
 							}
 						}
 					}
 					else
 					{
-						$oneError .= "Vous devez indiquer votre fonction</br>";
+						$oneError .= "Vous devez indiquer votre fonction<br/>";
 					}
 				}
 			}
 			else
 			{
-				$oneError .= "Vous devez indiquer votre fili&egrave;re</br>";
+				$oneError .= "Vous devez indiquer votre fili&egrave;re<br/>";
 			}
 		}
 		else if($_SESSION['categorie'] == 'direction')
@@ -295,7 +295,7 @@
     }
 	else
 	{
-		$oneError .= "Vous devez selectionner votre cat&eacute;gorie</br>";
+		$oneError .= "Vous devez selectionner votre cat&eacute;gorie<br/>";
 	}
 
 
