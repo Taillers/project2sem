@@ -13,11 +13,13 @@
     	$(Document).ready(function () {
     		$('#ex1').slider({
     			formatter: function (value) {
+    				$('#niveaumental').val(value);
     				return 'Degré d\'activité mental: ' + value;
     			}
     		});
     		$('#ex2').slider({
     			formatter: function (value) {
+    				$('#niveauphysique').val(value);
     				return 'Degré d\'activité physique: ' + value;
     			}
     		});
@@ -46,7 +48,8 @@
 				<div class="rows">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8">
-						<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
+						<input id="ex1" data-slider-id='ex1Slider' type="range" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
+						<input type="hidden" name="niveaumental" id="niveaumental" value="" />
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
@@ -66,7 +69,8 @@
 				<div class="rows">
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8">
-						<input id="ex2" data-slider-id='ex2Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
+						<input id="ex2" data-slider-id='ex2Slider' type="range" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
+						<input type="hidden" name="niveauphysique" id="niveauphysique" value="" />
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
@@ -81,6 +85,7 @@
             </div>
         </div>
     </form>
+
 	<?php include("includes/footer.php");?>
 </body>
 </html>
