@@ -13,12 +13,12 @@
     	$(Document).ready(function () {
     		$('#ex1').slider({
     			formatter: function (value) {
-    				return 'Current value: ' + value;
+    				return 'Degré d\'activité mental: ' + value;
     			}
     		});
     		$('#ex2').slider({
     			formatter: function (value) {
-    				return 'Current value: ' + value;
+    				return 'Degré d\'activité physique: ' + value;
     			}
     		});
     	});
@@ -72,6 +72,14 @@
 				</div>
 			</div>
 		</div>
+        <div class="panel panel-default">
+            <div class="panel-body">Validation</div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-default">Valider</button>
+                </div>
+            </div>
+        </div>
     </form>
 	<?php include("includes/footer.php");?>
 </body>
