@@ -7,7 +7,7 @@
 		if(isset($_POST['peoo2func']))
 		{
 			$_SESSION['peoo2func'] = $_POST['peoo2func'];
-			if($_SESSION['peoo2func'] == 'autre2fonction')
+			if($_SESSION['peoo2func'] == '4')
 			{
 				if(isset($_POST['libelle2fonction']))
 				{
@@ -30,7 +30,7 @@
 		if(isset($_POST['peoo2type']))
 		{
 			$_SESSION['peoo2type'] = $_POST['peoo2type'];
-			if($_SESSION['peoo2type'] == 'autre2type')
+			if($_SESSION['peoo2type'] == '4')
 			{
 				if(isset($_POST['libelle2type']))
 				{
@@ -123,7 +123,7 @@
 					if(isset($_POST['peeo1b']))
 					{
 						$_SESSION['peeo1b'] = $_POST['peeo1b'];
-						if($_SESSION['peeo1b'] == 'peeo1bautretype')
+						if($_SESSION['peeo1b'] == '4')
 						{
 							if(isset($_POST['peeo1bautretypelibelle']))
 							{
@@ -138,7 +138,7 @@
 								$oneError .= "Vous devez renseigner votre type d'&eacute;tablissement<br/>";
 							}
 						}
-						if($_SESSION['peeo1b'] == 'maternelle')
+						if($_SESSION['peeo1b'] == '5')
 						{
 							if(isset($_POST['nbclassemarternelle']))
 							{
@@ -149,7 +149,7 @@
 								$oneError .= "Vous devez renseigner le nombre de classes dans votre &eacute;tablissement<br/>";
 							}
 						}
-						if($_SESSION['peeo1b'] == 'elementaire')
+						if($_SESSION['peeo1b'] == '6')
 						{
 							if(isset($_POST['nbclasseelementaire']))
 							{
@@ -165,18 +165,18 @@
 					{
 						$oneError .= "Vous devez selectionner votre type d'&eacute;tablissement<br/>";
 					}
+					if(isset($_POST['rep']))
+					{
+						$_SESSION['rep'] = $_POST['rep'];
+					}
+					else
+					{
+						$oneError .= "Vous devez indiquer si votre &eacute;tablissement est en zone prioritaire ou non<br/>";
+					}
 				}
 				if($_SESSION['peoo'] == 'deuxdegre')
 				{
 					$oneError .= VerifVotreFonction();
-				}
-				if(isset($_POST['rep']))
-				{
-					$_SESSION['rep'] = $_POST['rep'];
-				}
-				else
-				{
-					$oneError .= "Vous devez indiquer si votre &eacute;tablissement est en zone prioritaire ou non<br/>";
 				}
 
 			}

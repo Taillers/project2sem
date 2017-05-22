@@ -49,7 +49,7 @@
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8">
 						<input id="ex1" data-slider-id='ex1Slider' type="range" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
-						<input type="hidden" name="niveaumental" id="niveaumental" value="" />
+						<input type="hidden" name="niveaumental" id="niveaumental" value="50" />
 					</div>
 					<div class="col-sm-2"></div>
 				</div>
@@ -70,7 +70,7 @@
 					<div class="col-sm-2"></div>
 					<div class="col-sm-8">
 						<input id="ex2" data-slider-id='ex2Slider' type="range" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="50" />
-						<input type="hidden" name="niveauphysique" id="niveauphysique" value="" />
+						<input type="hidden" name="niveauphysique" id="niveauphysique" value="50" />
 					</div>
 					<div class="col-sm-2"></div>
 				</div>

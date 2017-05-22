@@ -83,12 +83,12 @@
                     $isChecked = "";
                     if(isset($_SESSION['statut']))
                     {
-                        if($_SESSION['statut'] == "titulaire")
+                        if($_SESSION['statut'] == "1")
                         {
                             $isChecked = "checked=\"checked\"";
                         }
                     }
-                    echo '<input class="form-control" type="radio" name="statut" value="titulaire" id="titulaire"' .$isChecked .' />';
+                    echo '<input class="form-control" type="radio" name="statut" value="1" id="titulaire"' .$isChecked .' />';
                 ?>
             </div>
         </div>
@@ -99,12 +99,12 @@
                     $isChecked = "";
                     if(isset($_SESSION['statut']))
                     {
-                        if($_SESSION['statut'] == "contractuel")
+                        if($_SESSION['statut'] == "2")
                         {
                             $isChecked = "checked=\"checked\"";
                         }
                     }
-                    echo '<input class="form-control" type="radio" name="statut" value="contractuel" id="contractuel"' .$isChecked .' />';
+                    echo '<input class="form-control" type="radio" name="statut" value="2" id="contractuel"' .$isChecked .' />';
                 ?>
             </div>
         </div>
@@ -115,12 +115,12 @@
                     $isChecked = "";
                     if(isset($_SESSION['statut']))
                     {
-                        if($_SESSION['statut'] == "stagiaire")
+                        if($_SESSION['statut'] == "3")
                         {
                             $isChecked = "checked=\"checked\"";
                         }
                     }
-                    echo '<input class="form-control" type="radio" name="statut" value="stagiaire" id="stagiaire"' .$isChecked .' />';
+                    echo '<input class="form-control" type="radio" name="statut" value="3" id="stagiaire"' .$isChecked .' />';
                 ?>
             </div>
         </div>
