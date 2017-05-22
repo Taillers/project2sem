@@ -211,7 +211,7 @@
 					if(isset($_POST['filiereatsstype']))
 					{
 						$_SESSION['filiereatsstype'] = $_POST['filiereatsstype'];
-						if($_SESSION['filiereatsstype'] == 'autre3type')
+						if($_SESSION['filiereatsstype'] == '4')
 						{
 							if(isset($_POST['type3fonction']))
 							{
@@ -243,7 +243,7 @@
 							if(isset($_POST['pdi1a']))
 							{
 								$_SESSION['pdi1a'] = $_POST['pdi1a'];
-								if($_SESSION['pdi1a'] == 'autre4type')
+								if($_SESSION['pdi1a'] == '4')
 								{
 									if(isset($_POST['type4type']))
 									{

@@ -897,12 +897,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatss']))
 								{
-									if($_SESSION['filiereatss'] == "filiereatssadmin")
+									if($_SESSION['filiereatss'] == "1")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatss" value="filiereatssadmin" id="filiereatssadmin"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatss" value="1" id="filiereatssadmin"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -913,12 +913,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatss']))
 								{
-									if($_SESSION['filiereatss'] == "filiereatsstech")
+									if($_SESSION['filiereatss'] == "2")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatss" value="filiereatsstech" id="filiereatsstech"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatss" value="2" id="filiereatsstech"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -929,12 +929,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatss']))
 								{
-									if($_SESSION['filiereatss'] == "filiereatsssoc")
+									if($_SESSION['filiereatss'] == "3")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatss" value="filiereatsssoc" id="filiereatsssoc"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatss" value="3" id="filiereatsssoc"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -945,12 +945,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatss']))
 								{
-									if($_SESSION['filiereatss'] == "filiereatsslab")
+									if($_SESSION['filiereatss'] == "4")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatss" value="filiereatsslab" id="filiereatsslab"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatss" value="4" id="filiereatsslab"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -965,13 +965,13 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsscatg']))
 								{
-									if($_SESSION['filiereatsscatg'] == "categorieA")
+									if($_SESSION['filiereatsscatg'] == "A")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsscatg" value="categorieA" id="categorieA"'.$isChecked .' />';
-                                ?>
+								echo '<input class="form-control" type="radio" name="filiereatsscatg" value="A" id="categorieA"'.$isChecked .' />';
+								?>
 							</div>
 						</div>
 						<div class="form-group">
@@ -981,13 +981,13 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsscatg']))
 								{
-									if($_SESSION['filiereatsscatg'] == "categorieB")
+									if($_SESSION['filiereatsscatg'] == "B")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsscatg" value="categorieB" id="categorieB"'.$isChecked .' />';
-                                ?>
+								echo '<input class="form-control" type="radio" name="filiereatsscatg" value="B" id="categorieB"'.$isChecked .' />';
+								?>
 							</div>
 						</div>
 						<div class="form-group">
@@ -997,13 +997,13 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsscatg']))
 								{
-									if($_SESSION['filiereatsscatg'] == "categorieC")
+									if($_SESSION['filiereatsscatg'] == "C")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsscatg" value="categorieC" id="categorieC"'.$isChecked .' />';
-                                ?>
+								echo '<input class="form-control" type="radio" name="filiereatsscatg" value="C" id="categorieC"'.$isChecked .' />';
+								?>
 							</div>
 						</div>
 					</div>
@@ -1017,12 +1017,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsstype']))
 								{
-									if($_SESSION['filiereatsstype'] == "filiereatsstypecollege")
+									if($_SESSION['filiereatsstype'] == "1")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsstype" value="filiereatsstypecollege" id="filiereatsstypecollege"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatsstype" value="1" id="filiereatsstypecollege"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -1033,12 +1033,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsstype']))
 								{
-									if($_SESSION['filiereatsstype'] == "filiereatsstypelycee")
+									if($_SESSION['filiereatsstype'] == "2")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsstype" value="filiereatsstypelycee" id="filiereatsstypelycee"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatsstype" value="2" id="filiereatsstypelycee"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -1049,12 +1049,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsstype']))
 								{
-									if($_SESSION['filiereatsstype'] == "filiereatsstypeprof")
+									if($_SESSION['filiereatsstype'] == "3")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsstype" value="filiereatsstypeprof" id="filiereatsstypeprof"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatsstype" value="3" id="filiereatsstypeprof"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -1065,12 +1065,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsstype']))
 								{
-									if($_SESSION['filiereatsstype'] == "filiereatsstypeaca")
+									if($_SESSION['filiereatsstype'] == "7")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsstype" value="filiereatsstypeaca" id="filiereatsstypeaca"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatsstype" value="7" id="filiereatsstypeaca"'.$isChecked .' />';
                                 ?>
 							</div>
 						</div>
@@ -1081,12 +1081,12 @@
 								$isChecked = "";
 								if(isset($_SESSION['filiereatsstype']))
 								{
-									if($_SESSION['filiereatsstype'] == "autre3type")
+									if($_SESSION['filiereatsstype'] == "4")
 									{
 										$isChecked = "checked=\"checked\"";
 									}
 								}
-								echo '<input class="form-control" type="radio" name="filiereatsstype" value="autre3type" id="autre3type"'.$isChecked .' />';
+								echo '<input class="form-control" type="radio" name="filiereatsstype" value="4" id="autre3type"'.$isChecked .' />';
                                 ?>
 							</div>
 							<div id="libautretype3" style="display: none">
@@ -1146,12 +1146,12 @@
 										$isChecked = "";
 										if(isset($_SESSION['pdi1a']))
 										{
-											if($_SESSION['pdi1a'] == "pdi1acollege")
+											if($_SESSION['pdi1a'] == "1")
 											{
 												$isChecked = "checked=\"checked\"";
 											}
 										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="pdi1acollege" id="pdi1acollege"'.$isChecked .' />';
+										echo '<input class="form-control" type="radio" name="pdi1a" value="1" id="pdi1acollege"'.$isChecked .' />';
                                         ?>
 									</div>
 								</div>
@@ -1162,12 +1162,12 @@
 										$isChecked = "";
 										if(isset($_SESSION['pdi1a']))
 										{
-											if($_SESSION['pdi1a'] == "pdi1alycee")
+											if($_SESSION['pdi1a'] == "2")
 											{
 												$isChecked = "checked=\"checked\"";
 											}
 										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="pdi1alycee" id="pdi1alycee"'.$isChecked .' />';
+										echo '<input class="form-control" type="radio" name="pdi1a" value="2" id="pdi1alycee"'.$isChecked .' />';
 										?>
 									</div>
 								</div>
@@ -1178,12 +1178,12 @@
 										$isChecked = "";
 										if(isset($_SESSION['pdi1a']))
 										{
-											if($_SESSION['pdi1a'] == "pdi1aprof")
+											if($_SESSION['pdi1a'] == "3")
 											{
 												$isChecked = "checked=\"checked\"";
 											}
 										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="pdi1aprof" id="pdi1aprof"'.$isChecked .' />';
+										echo '<input class="form-control" type="radio" name="pdi1a" value="3" id="pdi1aprof"'.$isChecked .' />';
                                         ?>
 									</div>
 								</div>
@@ -1194,12 +1194,12 @@
 										$isChecked = "";
 										if(isset($_SESSION['pdi1a']))
 										{
-											if($_SESSION['pdi1a'] == "pdi1aaca")
+											if($_SESSION['pdi1a'] == "7")
 											{
 												$isChecked = "checked=\"checked\"";
 											}
 										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="pdi1aaca" id="pdi1aaca"'.$isChecked .' />';
+										echo '<input class="form-control" type="radio" name="pdi1a" value="7" id="pdi1aaca"'.$isChecked .' />';
 										?>
 									</div>
 								</div>
@@ -1210,12 +1210,12 @@
 										$isChecked = "";
 										if(isset($_SESSION['pdi1a']))
 										{
-											if($_SESSION['pdi1a'] == "autre4type")
+											if($_SESSION['pdi1a'] == "4")
 											{
 												$isChecked = "checked=\"checked\"";
 											}
 										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="autre4type" id="autre4type"'.$isChecked .' />';
+										echo '<input class="form-control" type="radio" name="pdi1a" value="4" id="autre4type"'.$isChecked .' />';
                                         ?>
 									</div>
 									<div id="libautretype4" style="display: none">
@@ -1240,13 +1240,13 @@
 										$isChecked = "";
 										if(isset($_SESSION['pdi2a']))
 										{
-											if($_SESSION['pdi2a'] == "pdi2apremier")
+											if($_SESSION['pdi2a'] == "Premier degré")
 											{
 												$isChecked = "checked=\"checked\"";
 											}
 										}
-										echo '<input class="form-control" type="radio" name="pdi2a" value="pdi2apremier" id="pdi2apremier"'.$isChecked .' />';
-                                        ?>
+										echo '<input class="form-control" type="radio" name="pdi2a" value="Premier degré" id="pdi2apremier"'.$isChecked .' />';
+										?>
 									</div>
 								</div>
 								<div class="form-group">
@@ -1256,12 +1256,12 @@
 										$isChecked = "";
 										if(isset($_SESSION['pdi2a']))
 										{
-											if($_SESSION['pdi2a'] == "pdi2asecond")
+											if($_SESSION['pdi2a'] == "Second degré")
 											{
 												$isChecked = "checked=\"checked\"";
 											}
 										}
-										echo '<input class="form-control" type="radio" name="pdi2a" value="pdi2asecond" id="pdi2asecond"'.$isChecked .' />';
+										echo '<input class="form-control" type="radio" name="pdi2a" value="Second degré" id="pdi2asecond"'.$isChecked .' />';
 										?>
 									</div>
 								</div>

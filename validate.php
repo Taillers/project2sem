@@ -130,7 +130,46 @@
 				pg_query($dbconn,$autreQuery);
 			}
 		}
-
+		if($_SESSION['categorie'] == 'itrf')
+		{
+			if($_SESSION['filiere'] == 'filiereitrf')
+			{
+				if($_SESSION['filiereirtffunc'] == "filiereitrffuncdirection")
+				{
+					// personnel_direction num_type_etablissement num_personnel_direction
+					$query = 'insert into personnel_direction(num_type_etablissement) values ('.$_SESSION['pdi1a'].') returning num_personnel_direction';
+					$result = pg_query($dbconn,$query);
+					$row = pg_fetch_row($result);
+					$numpedir = $row[0];
+					$autreQuery = 'update sonde set num_personnel_direction = '.$numpedir .' where num_sonde = ' .$lastIdSonde;
+					pg_query($dbconn,$autreQuery);
+				}
+				if($_SESSION['filiereirtffunc'] == "filiereitrffuncinspection")
+				{
+					// personnel_direction num_type_etablissement num_personnel_direction
+					$goodValue = pg_escape_string($_SESSION['pdi2a']);
+					$query = 'insert into personnel_inspection(niveau) values (\''.$goodValue.'\') returning num_personnel_inspection';
+					$result = pg_query($dbconn,$query);
+					$row = pg_fetch_row($result);
+					$numpeinsp = $row[0];
+					$autreQuery = 'update sonde set num_personnel_inspection = '.$numpeinsp .' where num_sonde = ' .$lastIdSonde;
+					pg_query($dbconn,$autreQuery);
+				}
+			}
+			if($_SESSION['filiere'] == 'filiereatss')
+			{
+				// personnnel_atss categorie num_type_etablissement num_filiere num_personnel_atss
+				$query = 'insert into personnnel_atss(categorie,num_type_etablissement,num_filiere) values (\''.$_SESSION['filiereatsscatg'].'\','.$_SESSION['filiereatsstype'].' , '.$_SESSION['filiereatss'].') returning num_personnel_atss';
+				$result = pg_query($dbconn,$query);
+				$row = pg_fetch_row($result);
+				$numpeatss = $row[0];
+				$autreQuery = 'update sonde set num_personnel_atss = '.$numpeatss .' where num_sonde = ' .$lastIdSonde;
+				pg_query($dbconn,$autreQuery);
+			}
+		}
+		if($_SESSION['categorie'] == 'direction')
+		{
+		}
 
 		pg_close($dbconn);
 	}
