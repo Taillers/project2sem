@@ -118,7 +118,7 @@
         <div class="panel-body">Validation</div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default">Valider</button>
                 </div>
             </div>
         </div>
