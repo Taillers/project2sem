@@ -11,18 +11,12 @@
 	<script type="text/javascript">
     	//   function javascript. Si l'identifiant moinsunan ou plusunan sont coché, on affiche ou masque la boite de saisie du nombre d'année d'ancienneté
     	$(document).ready(function () {
-    		$('#moinsunan, #plusunan,#enseignant,#itrf,#direction,#undegre,#deuxdegre,#peeo1afonction,#autretype,#maternelle,#elementaire, \
+    		$('#moinsunan, #plusunan,#enseignant,#itrf,#direction,#undegre,#deuxdegre,#peeo1afonction,#peeo1bautretype,#maternelle,#elementaire, \
 				#peeo2aed,#peeo2cpe,#peeo2plp,#peeo2certifie,#peeo2agrege, #peeo2peps, #autre2fonction, #conseiller,#directeur,#enseignement,\
 				#peeo2typecollege,#peeo2typelycee,#peeo2typeprof, #autre2type, #filiereitrf, #filiereatss,\
 				#autre3type,#filiereatsstypeaca, #filiereatsstypeprof,#filiereatsstypelycee,#filiereatsstypecollege,\
 				#autre4type,#pdi1aaca, #pdi1aprof,#pdi1alycee,#pdi1acollege,#filiereitrffuncdirection,#filiereitrffuncinspection ').change(function () {
 
-				if ($('#filiereitrf').is(':checked')) {
-					$('#itrffiliere').show();
-				}
-				else {
-					$('#itrffiliere').hide();
-				}
 				// si PDI Personnel de direction est coché, on affiche les types d'établissement
 				if ($('#filiereitrffuncdirection').is(':checked')) {
 					$('#etablissementdirection').show();
@@ -37,13 +31,21 @@
 				else {
 					$('#personnelinspection').hide();
 				}
-
+				//si PIA filière ATSS est coché, on affiche la fenetre avec les question ATSS
 				if ($('#filiereatss').is(':checked')) {
 					$('#atssfiliere').show();
 				}
 				else {
 					$('#atssfiliere').hide();
 				}
+				//si PIA filière ITRF est coché, on affiche la fenetre avec les question ITRF
+				if ($('#filiereitrf').is(':checked')) {
+					$('#itrffiliere').show();
+				}
+				else {
+					$('#itrffiliere').hide();
+				}
+				//Si la case plus d'un an d'anciennete est coché, on affiche la fenetre pour saisir le nombre d'année d'anciennete
 				if ($('#plusunan').is(':checked')) {
     				$('#nbanciennete').show();
     			}
@@ -84,11 +86,11 @@
     				$('#libpeeo1afonction').hide();
     			}
     			//Si PEEO_1b Autre est coché, on affiche la boite de texte permettant la saisie, sinon, on la masque
-    			if ($('#autretype').is(':checked')) {
-    				$('#libautretype').show();
+    			if ($('#peeo1bautretype').is(':checked')) {
+    				$('#libpeeo1bautretype').show();
     			}
     			else {
-    				$('#libautretype').hide();
+    				$('#libpeeo1bautretype').hide();
     			}
     			//Si PEEO_2a Autre est coché, on affiche la boite de texte permettant la saisie, sinon, on la masque
     			if ($('#autre2fonction').is(':checked')) {
@@ -368,7 +370,7 @@
 						<div id="libpeeo1afonction" style="display: none">
 							<label class="control-label col-sm-2" for="libellefonction">Fonction :</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" name="libellefonction" id="libellefonction"
+								<input type="text" pattern="\S" class="form-control" name="libellefonction" id="libellefonction"
 									value="<?php echo (isset($_SESSION['libellefonction']))?$_SESSION['libellefonction']:'';?>"
 									placeholder="Votre fonction" />
 							</div>
@@ -383,14 +385,14 @@
 						<div class="col-sm-1">
 							<?php
                             $isChecked = "";
-                            if(isset($_SESSION['peoo1type']))
+                            if(isset($_SESSION['peeo1b']))
                             {
-                                if($_SESSION['peoo1type'] == "maternelle")
+                                if($_SESSION['peeo1b'] == "maternelle")
                                 {
                                     $isChecked = "checked=\"checked\"";
                                 }
                             }
-                            echo '<input class="form-control" type="radio" name="peoo1type" value="maternelle" id="maternelle"'.$isChecked .' />';
+                            echo '<input class="form-control" type="radio" name="peeo1b" value="maternelle" id="maternelle"'.$isChecked .' />';
                             ?>
 						</div>
 					</div>
@@ -399,37 +401,37 @@
 						<div class="col-sm-1">
 							<?php
                             $isChecked = "";
-                            if(isset($_SESSION['peoo1type']))
+                            if(isset($_SESSION['peeo1b']))
                             {
-                                if($_SESSION['peoo1type'] == "elementaire")
+                                if($_SESSION['peeo1b'] == "elementaire")
                                 {
                                     $isChecked = "checked=\"checked\"";
                                 }
                             }
-                            echo '<input class="form-control" type="radio" name="peoo1type" value="elementaire" id="elementaire"'.$isChecked .' />';
+                            echo '<input class="form-control" type="radio" name="peeo1b" value="elementaire" id="elementaire"'.$isChecked .' />';
                             ?>
 						</div>
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="autretype">Autre :</label>
+						<label class="control-label col-sm-2" for="peeo1bautretype">Autre :</label>
 						<div class="col-sm-1">
 							<?php
                             $isChecked = "";
-                            if(isset($_SESSION['peoo1type']))
+                            if(isset($_SESSION['peeo1b']))
                             {
-                                if($_SESSION['peoo1type'] == "autretype")
+                                if($_SESSION['peeo1b'] == "peeo1bautretype")
                                 {
                                     $isChecked = "checked=\"checked\"";
                                 }
                             }
-                            echo '<input class="form-control" type="radio" name="peoo1type" value="autretype" id="autretype"'.$isChecked .' />';
+                            echo '<input class="form-control" type="radio" name="peeo1b" value="peeo1bautretype" id="peeo1bautretype"'.$isChecked .' />';
                             ?>
 						</div>
-						<div id="libautretype" style="display: none">
-							<label class="control-label col-sm-2" for="libelleautretype">Préciser :</label>
+						<div id="libpeeo1bautretype" style="display: none">
+							<label class="control-label col-sm-2" for="peeo1bautretypelibelle">Préciser :</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" name="libelleautretype" id="libelleautretype"
-									value="<?php echo (isset($_SESSION['libelleautretype']))?$_SESSION['libelleautretype']:'';?>"
+								<input type="text" pattern="\S" class="form-control" name="peeo1bautretypelibelle" id="peeo1bautretypelibelle"
+									value="<?php echo (isset($_SESSION['peeo1bautretypelibelle']))?$_SESSION['peeo1bautretypelibelle']:'';?>"
 									placeholder="Votre fonction" />
 							</div>
 						</div>
@@ -746,7 +748,7 @@
 					<div id="libautrefonction2" style="display: none">
 						<label class="control-label col-sm-2" for="libelle2fonction">Fonction :</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="libell2efonction" id="libelle2fonction"
+							<input type="text" pattern="\S" class="form-control" name="libell2efonction" id="libelle2fonction"
 								value="<?php echo (isset($_SESSION['libelle2fonction']))?$_SESSION['libelle2fonction']:'';?>"
 								placeholder="Votre fonction" />
 						</div>
@@ -822,7 +824,7 @@
 					<div id="libautretype2" style="display: none">
 						<label class="control-label col-sm-2" for="libelle2type">Fonction :</label>
 						<div class="col-sm-4">
-							<input type="text" class="form-control" name="libelle2type" id="libelle2type"
+							<input type="text" pattern="\S" class="form-control" name="libelle2type" id="libelle2type"
 								value="<?php echo (isset($_SESSION['libelle2type']))?$_SESSION['libelle2type']:'';?>"
 								placeholder="Type d'établissement" />
 						</div>
@@ -1071,7 +1073,7 @@
 							<div id="libautretype3" style="display: none">
 								<label class="control-label col-sm-2" for="type3fonction">Fonction :</label>
 								<div class="col-sm-4">
-									<input type="text" class="form-control" name="type3fonction" id="type3fonction"
+									<input type="text" pattern="\S" class="form-control" name="type3fonction" id="type3fonction"
 										value="<?php echo (isset($_SESSION['type3fonction']))?$_SESSION['type3fonction']:'';?>"
 										placeholder="Type d'établissement'" />
 								</div>
@@ -1200,7 +1202,7 @@
 									<div id="libautretype4" style="display: none">
 										<label class="control-label col-sm-2" for="type4type">Fonction :</label>
 										<div class="col-sm-4">
-											<input type="text" class="form-control" name="type4type" id="type3fonction"
+											<input type="text" pattern="\S" class="form-control" name="type4type" id="type3fonction"
 												value="<?php echo (isset($_SESSION['type4type']))?$_SESSION['type4type']:'';?>"
 												placeholder="Type d'établissement'" />
 										</div>

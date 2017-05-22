@@ -16,6 +16,17 @@
     qui servira à détecter si certaines caractéristiques des postes aident à préserver le bien-être, ou au contraire sont associées à plus de mal-être 
     dans l'activité professionnelle.
   </p>
+	<?php
+	if(isset($_SESSION["error"]))
+	{
+		if(!empty($_SESSION["error"]))
+		{
+			echo '<div class="alert alert-danger">';
+			echo '<strong>Erreur!</strong> '.$_SESSION["error"] .'';
+			echo '</div>';
+		}
+	}
+	?>
   <form method="post" action="traitement2.php" class="form-horizontal">
     <div class="panel panel-default">
         <div class="panel-body">Age</div>
