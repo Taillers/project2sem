@@ -1,43 +1,6 @@
-<?php session_start() ?>
-<p>pour la session</p>
-<table>
-	<?php
-
-
-    foreach ($_SESSION as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "</td>";
-        echo "</tr>";
-    }
-
-
-    ?>
-</table>
-<p> pour les posts</p>
-<table>
-	<?php
-
-
-    foreach ($_POST as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "</td>";
-        echo "</tr>";
-    }
-
-
-    ?>
-</table>
 <?php
+	session_start();
+
 	$oneError = "";
     if(isset($_POST['niveaumental']))
     {
@@ -170,12 +133,13 @@
 		if($_SESSION['categorie'] == 'direction')
 		{
 		}
-
 		pg_close($dbconn);
+		include("page4.php");
 	}
 	else
 	{
 		$_SESSION["error"] = $oneError;
 		include("page3.php");
 	}
+
 ?>
