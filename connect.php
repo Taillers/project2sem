@@ -15,7 +15,7 @@
   <?php include("includes/header.php");?>
   <?php include("includes/navigation.php");?>
   <?php 
-    if(isset($_SESSION['connected']) && $_SESSION['connected'] == true;)
+    if(isset($_SESSION['connected']) && $_SESSION['connected'] == true)
     {
         session_unset();
         session_destroy();
