@@ -131,20 +131,20 @@
 	$nbLignes = pg_num_rows($result);
 	if($nbLignes == 0)
 	{
-		$fonction = array( "1" => "Enseignement",
-						  "2" => "Directeur d'école",
-						  "3" => "Conseiller pédagogique",
-						  "4" => "autre",
-						  "5" => "AED",
-						  "6" => "CPE",
-						  "7" => "PLP",
-						  "8" => "Certifié",
-						  "9" => "Agrégé",
-						  "10" => "PEPS"
+		$fonction = array("Enseignement",
+						  "Directeur d'école",
+						  "Conseiller pédagogique",
+						  "autre",
+						  "AED",
+						  "CPE",
+						  "PLP",
+						  "Certifié",
+						  "Agrégé",
+						  "PEPS"
 			);
 		foreach($fonction as $key => $value) {
 			$goodValue = pg_escape_string($value);
-			$query = 'insert into fonction(num_fonction, nom_fonction) values ('.$key.',\''.$goodValue.'\')';
+			$query = 'insert into fonction(nom_fonction) values (\''.$goodValue.'\')';
 			pg_query($dbconn,$query);
 		}
 	}
@@ -152,17 +152,17 @@
 	$nbLignes = pg_num_rows($result);
 	if($nbLignes == 0)
 	{
-		$fonction = array( "1" => "Collège et SEGPA",
-						  "2" => "Lycée général",
-						  "3" => "Lycée professionnel",
-						  "4" => "autre établissement",
-						  "5" => "école maternelle",
-						  "6" => "école élémentaire",
-						  "7" => "Service académiques"
+		$fonction = array( "Collège et SEGPA",
+						  "Lycée général",
+						  "Lycée professionnel",
+						  "autre établissement",
+						  "école maternelle",
+						  "école élémentaire",
+						  "Service académiques"
 			);
-		foreach($fonction as $key => $value) {
+		foreach($fonction as $value) {
 			$goodValue = pg_escape_string($value);
-			$query = 'insert into type_etablissement(num_type_etablissement, lib_type_etablissement) values ('.$key.',\''.$goodValue.'\')';
+			$query = 'insert into type_etablissement(lib_type_etablissement) values (\''.$goodValue.'\')';
 			pg_query($dbconn,$query);
 		}
 	}

@@ -9,9 +9,7 @@
         }
         else
         {
-            session_unset();
-            session_destroy();
-            header("Location: index.php");
+            header("Location: page4.php");
             exit;
         }
     }

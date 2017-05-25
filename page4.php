@@ -17,10 +17,12 @@
   	</div>
 	</p>
 
-<?php
-  include("includes/footer.php");
-  session_unset();
-  session_destroy();
-?>
+    <?php
+    include("includes/footer.php");
+    if (session_status() == PHP_SESSION_ACTIVE) {
+        session_unset();
+        session_destroy();
+    }
+    ?>
 </body>
 </html>

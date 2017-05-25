@@ -23,10 +23,6 @@
 		$iniInfo = parse_ini_file("thesite.ini");
 		$dbconn = pg_connect("host=".$iniInfo['dbaddress']." dbname=".$iniInfo['dbname']." user=".$iniInfo['dbuser']." password=".$iniInfo['dbpassword']."")
 		or die('Connexion impossible : ' . pg_last_error());
-		$iniInfo = parse_ini_file("thesite.ini");
-		$dbconn = pg_connect("host=".$iniInfo['dbaddress']." dbname=".$iniInfo['dbname']." user=".$iniInfo['dbuser']." password=".$iniInfo['dbpassword']."")
-		or die('Connexion impossible : ' . pg_last_error());
-		echo 'connexion successful<br/>';
 		$query = "insert into sonde (age, sexe, anciennete, personnel_irtf, niveau_activite_mentale, niveau_activite_physique, num_statut, code_departement) values ( ";
 		$query .= $_SESSION['age'].',\''.$_SESSION['sexe'].'\',';
 		if($_SESSION['anciennete'] == 'moinsunan')
@@ -72,10 +68,48 @@
 				}
 				else if($_SESSION['peeo1b'] == "6")
 				{
-					$nbClasse = $_SESSION['nbclassemarternelle'];
+					$nbClasse = $_SESSION['nbclasseelementaire'];
 				}
-
-				$query = 'insert into perso_ens_edu_orien_degre1(nb_classes,rep,num_type_etablissement,num_fonction) values ('.$_SESSION['nbclassemarternelle'].','.$_SESSION['rep'].','.$_SESSION['peeo1b'].','.$_SESSION['peeo1a'].' ) returning num_peeo1';
+                $numEtablissement = $_SESSION['peeo1b'];
+                if($_SESSION['peeo1b'] == 4)
+                {
+                    //'.$_SESSION['peeo1bautretypelibelle'].'
+                    $queryFind = 'select num_type_etablissement from type_etablissement where lib_type_etablissement = \''.pg_escape_string($_SESSION['peeo1bautretypelibelle']).'\'';
+                    $result = pg_query($dbconn,  $queryFind);
+                    $nbLignes = pg_num_rows($result);
+                    if($nbLignes == 0)
+                	{
+                        $numEtabQuery = 'insert into type_etablissement (lib_type_etablissement) values (\''.pg_escape_string($_SESSION['peeo1bautretypelibelle']).'\') returning num_type_etablissement';
+                        $result = pg_query($dbconn,$numEtabQuery);
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                    else
+                    {
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                }
+                $numFontion = $_SESSION['peeo1a'];
+                if($_SESSION['peeo1a'] == 4)
+                {
+                    $queryFind = 'select num_fonction from fonction where nom_fonction = \''.pg_escape_string($_SESSION['libellefonction']).'\'';
+                    $result = pg_query($dbconn,  $queryFind);
+                    $nbLignes = pg_num_rows($result);
+                    if($nbLignes == 0)
+                	{
+                        $numEtabQuery = 'insert into fonction (nom_fonction) values (\''.pg_escape_string($_SESSION['libellefonction']).'\') returning num_fonction';
+                        $result = pg_query($dbconn,$numEtabQuery);
+                        $row = pg_fetch_row($result);
+                        $numFontion = $row[0];
+                    }
+                    else
+                    {
+                        $row = pg_fetch_row($result);
+                        $numFontion = $row[0];
+                    }
+                }
+				$query = 'insert into perso_ens_edu_orien_degre1(nb_classes,rep,num_type_etablissement,num_fonction) values ('.$nbClasse.','.$_SESSION['rep'].','.$numEtablissement.','.$numFontion.' ) returning num_peeo1';
 				$result = pg_query($dbconn,$query);
 				$row = pg_fetch_row($result);
 				$numpeeo1 = $row[0];
@@ -85,7 +119,28 @@
 			if($_SESSION['peoo'] == 'deuxdegre')
 			{
 			//perso_ens_edu_orien_degre2 num_type_etablissement num_statut
-				$query = 'insert into perso_ens_edu_orien_degre2(num_type_etablissement,num_statut) values ('.$_SESSION['peoo2type'].','.$_SESSION['statut'].') returning num_peeo2';
+                $numEtablissement = $_SESSION['peoo2type'];
+                if($_SESSION['peoo2type'] == 4)
+                {
+                    //'.$_SESSION['peeo1bautretypelibelle'].'
+                    $queryFind = 'select num_type_etablissement from type_etablissement where lib_type_etablissement = \''.pg_escape_string($_SESSION['libelle2type']).'\'';
+                    $result = pg_query($dbconn,  $queryFind);
+                    $nbLignes = pg_num_rows($result);
+                    if($nbLignes == 0)
+                	{
+                        $numEtabQuery = 'insert into type_etablissement (lib_type_etablissement) values (\''.pg_escape_string($_SESSION['libelle2type']).'\') returning num_type_etablissement';
+                        $result = pg_query($dbconn,$numEtabQuery);
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                    else
+                    {
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                }
+
+				$query = 'insert into perso_ens_edu_orien_degre2(num_type_etablissement,num_statut) values ('.$numEtablissement.','.$_SESSION['statut'].') returning num_peeo2';
 				$result = pg_query($dbconn,$query);
 				$row = pg_fetch_row($result);
 				$numpeeo2 = $row[0];
@@ -100,7 +155,26 @@
 				if($_SESSION['filiereirtffunc'] == "filiereitrffuncdirection")
 				{
 					// personnel_direction num_type_etablissement num_personnel_direction
-					$query = 'insert into personnel_direction(num_type_etablissement) values ('.$_SESSION['pdi1a'].') returning num_personnel_direction';
+                    $numEtablissement = $_SESSION['pdi1a'];
+                    if($_SESSION['pdi1a'] == 4)
+                    {
+                        $queryFind = 'select num_type_etablissement from type_etablissement where lib_type_etablissement = \''.pg_escape_string($_SESSION['type4type']).'\'';
+                        $result = pg_query($dbconn,  $queryFind);
+                        $nbLignes = pg_num_rows($result);
+                        if($nbLignes == 0)
+                        {
+                            $numEtabQuery = 'insert into type_etablissement (lib_type_etablissement) values (\''.pg_escape_string($_SESSION['type4type']).'\') returning num_type_etablissement';
+                            $result = pg_query($dbconn,$numEtabQuery);
+                            $row = pg_fetch_row($result);
+                            $numEtablissement = $row[0];
+                        }
+                        else
+                        {
+                            $row = pg_fetch_row($result);
+                            $numEtablissement = $row[0];
+                        }
+                    }
+					$query = 'insert into personnel_direction(num_type_etablissement) values ('.$numEtablissement.') returning num_personnel_direction';
 					$result = pg_query($dbconn,$query);
 					$row = pg_fetch_row($result);
 					$numpedir = $row[0];

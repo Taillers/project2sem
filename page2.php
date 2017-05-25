@@ -59,15 +59,24 @@
     				$('#PEOO').hide();
     			}
 
-    			if ($('#direction').is(':checked') || $('#deuxdegre').is(':checked')) {
+    			if ($('#deuxdegre').is(':checked')) {
     				$('#peeo2fonction').show();
     			}
     			else {
     				$('#peeo2fonction').hide();
     			}
+
+    			if ($('#direction').is(':checked')) {
+    			    $('#peeo2fonction').hide();
+    			    $('#pdi').show();
+    			}
+    			else {
+    			    $('#pdi').hide();
+    			}
 				// Si categ A (Personnel ITRF.. est coché, on affiche les question filières
     			if ($('#itrf').is(':checked')) {
-    				$('#persoirtfatss').show();
+    			    $('#persoirtfatss').show();
+    			    $('#peeo2fonction').hide();
     			}
     			else {
     				$('#persoirtfatss').hide();
@@ -438,12 +447,12 @@
                             $isChecked = "";
                             if(isset($_SESSION['peeo1b']))
                             {
-                                if($_SESSION['peeo1b'] == "peeo1bautretype")
+                                if($_SESSION['peeo1b'] == "4")
                                 {
                                     $isChecked = "checked=\"checked\"";
                                 }
                             }
-                            echo '<input class="form-control" type="radio" name="peeo1b" value="peeo1bautretype" id="peeo1bautretype"'.$isChecked .' />';
+                            echo '<input class="form-control" type="radio" name="peeo1b" value="4" id="peeo1bautretype"'.$isChecked .' />';
                             ?>
 						</div>
 						<div id="libpeeo1bautretype" style="display: none">
@@ -1101,176 +1110,177 @@
 					</div>
 
 				</div>
-				<div id="itrffiliere" style="display:none">
-					<div class="panel panel-default">
-						<div class="panel-body">Précisez votre fonction</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="filiereitrffuncdirection">Personnel de direction</label>
-							<div class="col-sm-1">
-								<?php
-								$isChecked = "";
-								if(isset($_SESSION['filiereirtffunc']))
-								{
-									if($_SESSION['filiereirtffunc'] == "filiereitrffuncdirection")
-									{
-										$isChecked = "checked=\"checked\"";
-									}
-								}
-								echo '<input class="form-control" type="radio" name="filiereirtffunc" value="filiereitrffuncdirection" id="filiereitrffuncdirection"'.$isChecked .' />';
-                                ?>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2" for="filiereitrffuncinspection">Personnel d'inspection :</label>
-							<div class="col-sm-1">
-								<?php
-								$isChecked = "";
-								if(isset($_SESSION['filiereirtffunc']))
-								{
-									if($_SESSION['filiereirtffunc'] == "filiereitrffuncinspection")
-									{
-										$isChecked = "checked=\"checked\"";
-									}
-								}
-								echo '<input class="form-control" type="radio" name="filiereirtffunc" value="filiereitrffuncinspection" id="filiereitrffuncinspection"'.$isChecked .' />';
-                                ?>
-							</div>
-						</div>
-						<div id="etablissementdirection" style="display:none">
-							<div class="panel panel-default">
-								<div class="panel-body">Type d'établissement</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pdi1acollege">Collège et SEGPA :</label>
-									<div class="col-sm-1">
-										<?php
-										$isChecked = "";
-										if(isset($_SESSION['pdi1a']))
-										{
-											if($_SESSION['pdi1a'] == "1")
-											{
-												$isChecked = "checked=\"checked\"";
-											}
-										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="1" id="pdi1acollege"'.$isChecked .' />';
-                                        ?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pdi1alycee">Lycée général (y compris SGT sauf SP):</label>
-									<div class="col-sm-1">
-										<?php
-										$isChecked = "";
-										if(isset($_SESSION['pdi1a']))
-										{
-											if($_SESSION['pdi1a'] == "2")
-											{
-												$isChecked = "checked=\"checked\"";
-											}
-										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="2" id="pdi1alycee"'.$isChecked .' />';
-										?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pdi1aprof">Lycée professionnel (y compris SP et ERA, sauf SGT):</label>
-									<div class="col-sm-1">
-										<?php
-										$isChecked = "";
-										if(isset($_SESSION['pdi1a']))
-										{
-											if($_SESSION['pdi1a'] == "3")
-											{
-												$isChecked = "checked=\"checked\"";
-											}
-										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="3" id="pdi1aprof"'.$isChecked .' />';
-                                        ?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pdi1aaca">Services académiques (Rectorat, DSDEN) :</label>
-									<div class="col-sm-1">
-										<?php
-										$isChecked = "";
-										if(isset($_SESSION['pdi1a']))
-										{
-											if($_SESSION['pdi1a'] == "7")
-											{
-												$isChecked = "checked=\"checked\"";
-											}
-										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="7" id="pdi1aaca"'.$isChecked .' />';
-										?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="autre4type">Autres établissements (préciser) :</label>
-									<div class="col-sm-1">
-										<?php
-										$isChecked = "";
-										if(isset($_SESSION['pdi1a']))
-										{
-											if($_SESSION['pdi1a'] == "4")
-											{
-												$isChecked = "checked=\"checked\"";
-											}
-										}
-										echo '<input class="form-control" type="radio" name="pdi1a" value="4" id="autre4type"'.$isChecked .' />';
-                                        ?>
-									</div>
-									<div id="libautretype4" style="display: none">
-										<label class="control-label col-sm-2" for="type4type">Fonction :</label>
-										<div class="col-sm-4">
-											<input type="text"  class="form-control" name="type4type" id="type3fonction"
-												value="<?php echo (isset($_SESSION['type4type']))?$_SESSION['type4type']:'';?>"
-												placeholder="Type d'établissement'" />
-										</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-						<div id="personnelinspection" style="display:none">
-							<div class="panel panel-default">
-								<div class="panel-body">Vous intervenez dans le :</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pdi2apremier">Premier degré :</label>
-									<div class="col-sm-1">
-										<?php
-										$isChecked = "";
-										if(isset($_SESSION['pdi2a']))
-										{
-											if($_SESSION['pdi2a'] == "Premier degré")
-											{
-												$isChecked = "checked=\"checked\"";
-											}
-										}
-										echo '<input class="form-control" type="radio" name="pdi2a" value="Premier degré" id="pdi2apremier"'.$isChecked .' />';
-										?>
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label col-sm-2" for="pdi2asecond">Second degré :</label>
-									<div class="col-sm-1">
-										<?php
-										$isChecked = "";
-										if(isset($_SESSION['pdi2a']))
-										{
-											if($_SESSION['pdi2a'] == "Second degré")
-											{
-												$isChecked = "checked=\"checked\"";
-											}
-										}
-										echo '<input class="form-control" type="radio" name="pdi2a" value="Second degré" id="pdi2asecond"'.$isChecked .' />';
-										?>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</div>
+           
 		</div>
+        <div id="pdi" style="display:none">
+            <div class="panel panel-default">
+                <div class="panel-body">Précisez votre fonction</div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="filiereitrffuncdirection">Personnel de direction</label>
+                    <div class="col-sm-1">
+                        <?php
+                        $isChecked = "";
+                        if(isset($_SESSION['filiereirtffunc']))
+                        {
+                            if($_SESSION['filiereirtffunc'] == "filiereitrffuncdirection")
+                            {
+                                $isChecked = "checked=\"checked\"";
+                            }
+                        }
+                        echo '<input class="form-control" type="radio" name="filiereirtffunc" value="filiereitrffuncdirection" id="filiereitrffuncdirection"'.$isChecked .' />';
+                        ?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="filiereitrffuncinspection">Personnel d'inspection :</label>
+                    <div class="col-sm-1">
+                        <?php
+                        $isChecked = "";
+                        if(isset($_SESSION['filiereirtffunc']))
+                        {
+                            if($_SESSION['filiereirtffunc'] == "filiereitrffuncinspection")
+                            {
+                                $isChecked = "checked=\"checked\"";
+                            }
+                        }
+                        echo '<input class="form-control" type="radio" name="filiereirtffunc" value="filiereitrffuncinspection" id="filiereitrffuncinspection"'.$isChecked .' />';
+                        ?>
+                    </div>
+                </div>
+                <div id="etablissementdirection" style="display:none">
+                    <div class="panel panel-default">
+                        <div class="panel-body">Type d'établissement</div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pdi1acollege">Collège et SEGPA :</label>
+                            <div class="col-sm-1">
+                                <?php
+                                $isChecked = "";
+                                if(isset($_SESSION['pdi1a']))
+                                {
+                                    if($_SESSION['pdi1a'] == "1")
+                                    {
+                                        $isChecked = "checked=\"checked\"";
+                                    }
+                                }
+                                echo '<input class="form-control" type="radio" name="pdi1a" value="1" id="pdi1acollege"'.$isChecked .' />';
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pdi1alycee">Lycée général (y compris SGT sauf SP):</label>
+                            <div class="col-sm-1">
+                                <?php
+                                $isChecked = "";
+                                if(isset($_SESSION['pdi1a']))
+                                {
+                                    if($_SESSION['pdi1a'] == "2")
+                                    {
+                                        $isChecked = "checked=\"checked\"";
+                                    }
+                                }
+                                echo '<input class="form-control" type="radio" name="pdi1a" value="2" id="pdi1alycee"'.$isChecked .' />';
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pdi1aprof">Lycée professionnel (y compris SP et ERA, sauf SGT):</label>
+                            <div class="col-sm-1">
+                                <?php
+                                $isChecked = "";
+                                if(isset($_SESSION['pdi1a']))
+                                {
+                                    if($_SESSION['pdi1a'] == "3")
+                                    {
+                                        $isChecked = "checked=\"checked\"";
+                                    }
+                                }
+                                echo '<input class="form-control" type="radio" name="pdi1a" value="3" id="pdi1aprof"'.$isChecked .' />';
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pdi1aaca">Services académiques (Rectorat, DSDEN) :</label>
+                            <div class="col-sm-1">
+                                <?php
+                                $isChecked = "";
+                                if(isset($_SESSION['pdi1a']))
+                                {
+                                    if($_SESSION['pdi1a'] == "7")
+                                    {
+                                        $isChecked = "checked=\"checked\"";
+                                    }
+                                }
+                                echo '<input class="form-control" type="radio" name="pdi1a" value="7" id="pdi1aaca"'.$isChecked .' />';
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="autre4type">Autres établissements (préciser) :</label>
+                            <div class="col-sm-1">
+                                <?php
+                                $isChecked = "";
+                                if(isset($_SESSION['pdi1a']))
+                                {
+                                    if($_SESSION['pdi1a'] == "4")
+                                    {
+                                        $isChecked = "checked=\"checked\"";
+                                    }
+                                }
+                                echo '<input class="form-control" type="radio" name="pdi1a" value="4" id="autre4type"'.$isChecked .' />';
+                                ?>
+                            </div>
+                            <div id="libautretype4" style="display: none">
+                                <label class="control-label col-sm-2" for="type4type">Fonction :</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" name="type4type" id="type3fonction"
+                                        value="<?php echo (isset($_SESSION['type4type']))?$_SESSION['type4type']:'';?>"
+                                        placeholder="Type d'établissement'" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="personnelinspection" style="display:none">
+                    <div class="panel panel-default">
+                        <div class="panel-body">Vous intervenez dans le :</div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pdi2apremier">Premier degré :</label>
+                            <div class="col-sm-1">
+                                <?php
+                                $isChecked = "";
+                                if(isset($_SESSION['pdi2a']))
+                                {
+                                    if($_SESSION['pdi2a'] == "Premier degré")
+                                    {
+                                        $isChecked = "checked=\"checked\"";
+                                    }
+                                }
+                                echo '<input class="form-control" type="radio" name="pdi2a" value="Premier degré" id="pdi2apremier"'.$isChecked .' />';
+                                ?>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="pdi2asecond">Second degré :</label>
+                            <div class="col-sm-1">
+                                <?php
+                                $isChecked = "";
+                                if(isset($_SESSION['pdi2a']))
+                                {
+                                    if($_SESSION['pdi2a'] == "Second degré")
+                                    {
+                                        $isChecked = "checked=\"checked\"";
+                                    }
+                                }
+                                echo '<input class="form-control" type="radio" name="pdi2a" value="Second degré" id="pdi2asecond"'.$isChecked .' />';
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 		<div class="panel panel-default">
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">

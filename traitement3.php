@@ -99,7 +99,7 @@
 					if(isset($_POST['peeo1a']))
 					{
 						$_SESSION['peeo1a'] = $_POST['peeo1a'];
-						if($_SESSION['peeo1a'] == 'peeo1afonction')
+						if($_SESSION['peeo1a'] == 4)
 						{
 							if(isset($_POST['libellefonction']))
 							{
@@ -233,55 +233,6 @@
 					}
 
 				}
-				if($_SESSION['filiere'] == 'filiereitrf')
-				{
-					if(isset($_POST['filiereirtffunc']))
-					{
-						$_SESSION['filiereirtffunc'] = $_POST['filiereirtffunc'];
-						if($_SESSION['filiereirtffunc'] == 'filiereitrffuncdirection')
-						{
-							if(isset($_POST['pdi1a']))
-							{
-								$_SESSION['pdi1a'] = $_POST['pdi1a'];
-								if($_SESSION['pdi1a'] == '4')
-								{
-									if(isset($_POST['type4type']))
-									{
-										$_SESSION['type4type'] = $_POST['type4type'];
-										if(empty($_SESSION['type4type']))
-										{
-											$oneError .= "Votre type d'&eacute;tablissement doit &ecirc;tre renseigner<br/>";
-										}
-									}
-									else
-									{
-										$oneError .= "Vous devez pr&eacute;sicer votre type d'&eacute;tablissement<br/>";
-									}
-								}
-							}
-							else
-							{
-								$oneError .= "Vous devez s&eacute;lectionner votre type d'&eacute;tablissement<br/>";
-							}
-
-						}
-						if($_SESSION['filiereirtffunc'] == 'filiereitrffuncinspection')
-						{
-							if(isset($_POST['pdi2a']))
-							{
-								$_SESSION['pdi2a'] = $_POST['pdi2a'];
-							}
-							else
-							{
-								$oneError .= "Vous devez indiquer votre zone d'intervention<br/>";
-							}
-						}
-					}
-					else
-					{
-						$oneError .= "Vous devez indiquer votre fonction<br/>";
-					}
-				}
 			}
 			else
 			{
@@ -290,7 +241,56 @@
 		}
 		else if($_SESSION['categorie'] == 'direction')
 		{
-			$oneError .= VerifVotreFonction();
+            if(isset($_POST['filiereirtffunc']))
+			{
+			    $_SESSION['filiereirtffunc'] = $_POST['filiereirtffunc'];
+                if($_SESSION['filiereirtffunc'] == 'filiereitrffuncdirection')
+                {
+                    if(isset($_POST['pdi1a']))
+                    {
+                        $_SESSION['pdi1a'] = $_POST['pdi1a'];
+                        if($_SESSION['pdi1a'] == 4)
+                        {
+                            if(isset($_POST['type4type']))
+                            {
+                                $_SESSION['type4type'] = $_POST['type4type'];
+                                if(empty($_SESSION['type4type']))
+								{
+									$oneError .= "Votre type d'&eacute;tablissement ne peut pas &ecirc;tre vide<br/>";
+								}
+                            }
+                            else
+                            {
+                                $oneError .= "Vous devez pr&eacute;ciser votre type d'&eacute;tablissement<br/>";
+                            }
+
+                        }
+                        else
+                        {
+                            $oneError .= "Vous devez pr&eacute;ciser votre type d'&eacute;tablissement<br/>";
+                        }
+                    }
+                    else
+                    {
+                        $oneError .= "Vous devez s&eacute;lectionner votre type d'&eacute;tablissement<br/>";
+                    }
+                }
+                if($_SESSION['filiereirtffunc'] == 'filiereitrffuncinspection')
+                {
+                    if(isset($_POST['pdi2a']))
+                    {
+                        $_SESSION['pdi2a'] = $_POST['pdi2a'];
+                    }
+                    else
+                    {
+                        $oneError .= "Vous devez s&eacute;lectionner votre degr&eacute; d'inspection<br/>";
+                    }
+                }
+            }
+            else
+            {
+                $oneError .= "Vous devez selectionner votre fonction<br/>";
+            }
 		}
     }
 	else
