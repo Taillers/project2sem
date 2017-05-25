@@ -14,12 +14,12 @@
 					$_SESSION['libelle2fonction'] = $_POST['libelle2fonction'];
 					if(empty($_SESSION['libelle2fonction']))
 					{
-						$funcError .= "Le libells&eacute; de votre fonction ne peut pas &ecirc;etre vide<br/>";
+						$funcError .= "Le libell&eacute; de votre fonction ne peut pas &ecirc;etre vide<br/>";
 					}
 				}
 				else
 				{
-					$funcError .= "Vous devez indiquer le libells&eacute; de votre fonction<br/>";
+					$funcError .= "Vous devez indiquer le libell&eacute; de votre fonction<br/>";
 				}
 			}
 		}
