@@ -11,10 +11,7 @@
   <link rel="stylesheet" href="css/perso.css">
   
 </head>
-<body>
-  <?php include("includes/header.php");?>
-  <?php include("includes/navigation.php");?>
-  <?php 
+<body><?php include("includes/header.php");?><?php include("includes/navigation.php");?><?php
     if(isset($_SESSION['connected']) && $_SESSION['connected'] == true)
     {
         session_unset();
@@ -23,17 +20,18 @@
         exit;
     }
   ?>
-  <form class="form-inline" method="post" action="admin.php">
-  <div class="form-group">
-    <label for="UserName">Nom d'utilsateur</label>
-    <input type="text" class="form-control" id="UserName" placeholder="admin">
-  </div>
-  <div class="form-group">
-    <label for="userPassword">Mot de passe</label>
-    <input type="password" class="form-control" id="userPassword" placeholder="a43w54j2">
-  </div>
-  <button type="submit" class="btn btn-default">Login</button>
-</form>
-  <?php include("includes/footer.php");?>
+    <form class="form-inline" method="post" action="admin.php">
+        <div class="form-group">
+            <label for="UserName">Nom d'utilsateur</label>
+            <input type="text" class="form-control" id="UserName" name = "UserName" placeholder="admin">
+        </div>
+        <div class="form-group">
+            <label for="userPassword">Mot de passe</label>
+            <input type="password" class="form-control" id="userPassword" name = "UserPassword" placeholder="1234">
+        </div>
+        <button type="submit" class="btn btn-default">Login</button>
+    </form><?php include("includes/footer.php");?>
+    
 </body>
+
 </html>
