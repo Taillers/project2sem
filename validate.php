@@ -150,53 +150,30 @@
 		}
 		if($_SESSION['categorie'] == 'itrf')
 		{
-			if($_SESSION['filiere'] == 'filiereitrf')
-			{
-				if($_SESSION['filiereirtffunc'] == "filiereitrffuncdirection")
-				{
-					// personnel_direction num_type_etablissement num_personnel_direction
-                    $numEtablissement = $_SESSION['pdi1a'];
-                    if($_SESSION['pdi1a'] == 4)
-                    {
-                        $queryFind = 'select num_type_etablissement from type_etablissement where lib_type_etablissement = \''.pg_escape_string($_SESSION['type4type']).'\'';
-                        $result = pg_query($dbconn,  $queryFind);
-                        $nbLignes = pg_num_rows($result);
-                        if($nbLignes == 0)
-                        {
-                            $numEtabQuery = 'insert into type_etablissement (lib_type_etablissement) values (\''.pg_escape_string($_SESSION['type4type']).'\') returning num_type_etablissement';
-                            $result = pg_query($dbconn,$numEtabQuery);
-                            $row = pg_fetch_row($result);
-                            $numEtablissement = $row[0];
-                        }
-                        else
-                        {
-                            $row = pg_fetch_row($result);
-                            $numEtablissement = $row[0];
-                        }
-                    }
-					$query = 'insert into personnel_direction(num_type_etablissement) values ('.$numEtablissement.') returning num_personnel_direction';
-					$result = pg_query($dbconn,$query);
-					$row = pg_fetch_row($result);
-					$numpedir = $row[0];
-					$autreQuery = 'update sonde set num_personnel_direction = '.$numpedir .' where num_sonde = ' .$lastIdSonde;
-					pg_query($dbconn,$autreQuery);
-				}
-				if($_SESSION['filiereirtffunc'] == "filiereitrffuncinspection")
-				{
-					// personnel_direction num_type_etablissement num_personnel_direction
-					$goodValue = pg_escape_string($_SESSION['pdi2a']);
-					$query = 'insert into personnel_inspection(niveau) values (\''.$goodValue.'\') returning num_personnel_inspection';
-					$result = pg_query($dbconn,$query);
-					$row = pg_fetch_row($result);
-					$numpeinsp = $row[0];
-					$autreQuery = 'update sonde set num_personnel_inspection = '.$numpeinsp .' where num_sonde = ' .$lastIdSonde;
-					pg_query($dbconn,$autreQuery);
-				}
-			}
 			if($_SESSION['filiere'] == 'filiereatss')
 			{
+                $numEtablissement = $_SESSION['filiereatsstype'];
+                if($_SESSION['filiereatsstype'] == 4)
+                {
+                    //'.$_SESSION['peeo1bautretypelibelle'].'
+                    $queryFind = 'select num_type_etablissement from type_etablissement where lib_type_etablissement = \''.pg_escape_string($_SESSION['type3fonction']).'\'';
+                    $result = pg_query($dbconn,  $queryFind);
+                    $nbLignes = pg_num_rows($result);
+                    if($nbLignes == 0)
+                	{
+                        $numEtabQuery = 'insert into type_etablissement (lib_type_etablissement) values (\''.pg_escape_string($_SESSION['type3fonction']).'\') returning num_type_etablissement';
+                        $result = pg_query($dbconn,$numEtabQuery);
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                    else
+                    {
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                }
 				// personnnel_atss categorie num_type_etablissement num_filiere num_personnel_atss
-				$query = 'insert into personnnel_atss(categorie,num_type_etablissement,num_filiere) values (\''.$_SESSION['filiereatsscatg'].'\','.$_SESSION['filiereatsstype'].' , '.$_SESSION['filiereatss'].') returning num_personnel_atss';
+				$query = 'insert into personnnel_atss(categorie,num_type_etablissement,num_filiere) values (\''.$_SESSION['filiereatsscatg'].'\','.$numEtablissement.' , '.$_SESSION['filiereatss'].') returning num_personnel_atss';
 				$result = pg_query($dbconn,$query);
 				$row = pg_fetch_row($result);
 				$numpeatss = $row[0];
@@ -206,6 +183,45 @@
 		}
 		if($_SESSION['categorie'] == 'direction')
 		{
+            if($_SESSION['filiereirtffunc'] == "filiereitrffuncdirection")
+            {
+                $numEtablissement = $_SESSION['pdi1a'];
+                if($_SESSION['pdi1a'] == 4)
+                {
+                    //'.$_SESSION['peeo1bautretypelibelle'].'
+                    $queryFind = 'select num_type_etablissement from type_etablissement where lib_type_etablissement = \''.pg_escape_string($_SESSION['type4type']).'\'';
+                    $result = pg_query($dbconn,  $queryFind);
+                    $nbLignes = pg_num_rows($result);
+                    if($nbLignes == 0)
+                	{
+                        $numEtabQuery = 'insert into type_etablissement (lib_type_etablissement) values (\''.pg_escape_string($_SESSION['type4type']).'\') returning num_type_etablissement';
+                        $result = pg_query($dbconn,$numEtabQuery);
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                    else
+                    {
+                        $row = pg_fetch_row($result);
+                        $numEtablissement = $row[0];
+                    }
+                }
+                $query = 'insert into personnel_direction(num_type_etablissement) values (\''.pg_escape_string($numEtablissement).'\') returning num_personnel_direction';
+                $result = pg_query($dbconn,$query);
+				$row = pg_fetch_row($result);
+				$numpedir = $row[0];
+				$autreQuery = 'update sonde set num_personnel_direction = '.$numpedir .' where num_sonde = ' .$lastIdSonde;
+				pg_query($dbconn,$autreQuery);
+
+            }
+            if($_SESSION['filiereirtffunc'] == "filiereitrffuncinspection")
+            {
+                $query = 'insert into personnel_inspection(niveau) values (\''.pg_escape_string($_SESSION['pdi2a']).'\') returning num_personnel_inspection';
+                $result = pg_query($dbconn,$query);
+				$row = pg_fetch_row($result);
+				$numpeins = $row[0];
+				$autreQuery = 'update sonde set num_personnel_inspection = '.$numpeins .' where num_sonde = ' .$lastIdSonde;
+				pg_query($dbconn,$autreQuery);
+            }
 		}
 		pg_close($dbconn);
 		include("page4.php");

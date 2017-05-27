@@ -75,6 +75,13 @@
 				{
 					$oneError .= "Votre anciennet&eacute; ne peut pas &ecirc;tre vide.<br/>";
 				}
+                else
+                {
+                    if($_SESSION['age'] <= ($_SESSION['anneanciennete'] + 15 ))
+                    {
+                        $oneError .= "Votre anciennet&eacute; est trop importante par rapport &agrave; votre age.<br/>";
+                    }
+                }
 			}
 			else
 			{
@@ -244,6 +251,7 @@
             if(isset($_POST['filiereirtffunc']))
 			{
 			    $_SESSION['filiereirtffunc'] = $_POST['filiereirtffunc'];
+
                 if($_SESSION['filiereirtffunc'] == 'filiereitrffuncdirection')
                 {
                     if(isset($_POST['pdi1a']))
@@ -264,10 +272,6 @@
                                 $oneError .= "Vous devez pr&eacute;ciser votre type d'&eacute;tablissement<br/>";
                             }
 
-                        }
-                        else
-                        {
-                            $oneError .= "Vous devez pr&eacute;ciser votre type d'&eacute;tablissement<br/>";
                         }
                     }
                     else
